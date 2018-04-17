@@ -22,6 +22,24 @@ export function signinUser({email, password}) {
   
 }
 
+export function signupUser({email, password}) {
+  return function(dispatch) {
+    axios.post(`${API_URL}/signup`, { email, password })
+      // .then(response => {
+      //   // update state to authorized: true
+      //   dispatch({ type: AUTH_USER });
+      //   // save JWT token
+      //   localStorage.setItem('token', response.data.token);
+      //   // redirect to protected /feature route
+      //   browserHistory.push('/feature');
+      // })
+      // .catch(() => {
+      //   dispatch(authError('Bad Login info'))
+      // })
+  }
+  
+}
+
 export function authError(error) {
   return {
     type: AUTH_ERROR,
